@@ -2,11 +2,13 @@ import telebot
 import tomli
 from mistralai.client import MistralClient
 from mistralai.models.chat_completion import ChatMessage
+import os
 
 class MistralBot:
 
     def __init__(self):
-        with open('conf.toml', "rb") as f:
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        with open(os.path.join(dir_path,'conf.toml'), "rb") as f:
             data = tomli.load(f)
         self.telegram_token = data['telegram_bot_key']
         self.mistral_api_key = data['mistral_api_key']
