@@ -17,7 +17,7 @@ class MistralBot:
         self.model = data['model']
 
 
-        @self.bot.message_handler(commands=['start', 'hello'])
+        @self.bot.message_handler(commands=['getownid'])
         def send_welcome(message):
             self.bot.reply_to(message, message.from_user.id)
 
